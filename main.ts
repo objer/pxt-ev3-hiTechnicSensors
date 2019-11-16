@@ -1,6 +1,11 @@
 namespace sensors {
 
   class HiTechnicColorSensor extends sensors.internal.IICSensor {
+    constructor(port: number) {
+            super(port)
+            this.thresholdDetector = new sensors.ThresholdDetector(this.id());
+            this.calibrating = false;
+    }
     getColor() {
         this.transaction(1, [66], 1)
         return this.getBytes()[0]
