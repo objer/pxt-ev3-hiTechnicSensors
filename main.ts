@@ -1,8 +1,6 @@
 namespace sensors {
 
   class HiTechnicColorSensor extends sensors.internal.IICSensor {
-    constructor(port: number) {
-            super(port)
     }
     getColor() {
         this.transaction(1, [66], 1)
